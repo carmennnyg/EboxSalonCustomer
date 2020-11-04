@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1097362337993",
+    "firebase_url": "https://ebox-salon.firebaseio.com",
+    "project_id": "ebox-salon",
+    "storage_bucket": "ebox-salon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097362337993:android:142fddcc325d96a70a5d18",
+        "android_client_info": {
+          "package_name": "com.example.eboxsalon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1097362337993-buhfr26soeqt2dd10048v8qmte5c3stf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiXueRHBx_qcuKdIHPTgV3j8DzT_nyaSA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1097362337993-buhfr26soeqt2dd10048v8qmte5c3stf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
