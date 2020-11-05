@@ -23,7 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class RegisterActivity extends AppCompatActivity {
     private Button mSignUpButton, mSignInButton;
     private TextView mSignInTextView, mBannerTextView;
-    private EditText mNameField, mPhoneField, mEmailField, mPassword1Field;
+    private EditText mNameField, mPhoneField, mEmailField, mPassword1Field, mConfirmPasswordField;
     private View mView;
     FirebaseAuth fAuth;
     FirebaseFirestore db;
@@ -33,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
     public static  final  String PASSWORD_KEY = "password";
     public static  final  String NUMBER_KEY = "phoneNo:";
     public static  final  String EMAIL_KEY = "email";
+    public static final String CONFIRM_PASSWORD_KEY = "confirmPassword";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
         mPhoneField= findViewById(R.id.phone_edit_text);
         mEmailField = findViewById(R.id.emailaddress_edit_text);
         mPassword1Field= findViewById(R.id.password1_edit_text);
+        mConfirmPasswordField = findViewById(R.id.confirmpassword_edit_text);
 
         mSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String phone = mPhoneField.getText().toString().trim();
                 String email = mEmailField.getText().toString().trim();
                 String pwd = mPassword1Field.getText().toString().trim();
+                String confirmPwd = mConfirmPasswordField.getText().toString().trim();
 
                 if(phone.length() > 11 || phone.length() < 9){
                     mPhoneField.setError("Invalid phone number.");
@@ -87,15 +90,31 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
+                if(TextUtils.isEmpty(confirmPwd)){
+                    mConfirmPasswordField.setError("Please enter your password");
+                    return;
+                }
+
+                if(!pwd.equals(confirmPwd)){
+                    mConfirmPasswordField.setError("Please make sure your passwords match! ");
+                    return;
+                }
+
+
                 else if (!mNameField.getText().toString().equals("")
                         && !mPhoneField.getText().toString().equals("")
                         && !mEmailField.getText().toString().equals("")
-                        && !mPassword1Field.getText().toString().equals("")) {
+                        && !mPassword1Field.getText().toString().equals("")
+                        && !mConfirmPasswordField.getText().toString().equals("")) {
                     CollectionReference cities = db.collection(COLLECTION_NAME_KEY);
                     final Users users = new Users();
 
-                    users.setName(mEmailField.getText().toString());
+                    users.setName(mNameField.getText().toString());
+                    users.setPhoneNo(mPhoneField.getText().toString());
+                    users.setEmail(mEmailField.getText().toString());
                     users.setPassword(mPassword1Field.getText().toString());
+                    users.setConfirmPassword(mConfirmPasswordField.getText().toString());
+
                     db.collection(COLLECTION_NAME_KEY).document(mEmailField.getText().toString()).set(users);
 
                     DocumentReference docRef = db.collection(COLLECTION_NAME_KEY).document();

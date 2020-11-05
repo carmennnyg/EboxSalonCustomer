@@ -30,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     public static final String PASSWORD_KEY = "password";
     public static final String NUMBER_KEY = "phoneNo:";
     public static final String EMAIL_KEY = "email";
+    public static final String CONFIRM_PASSWORD_KEY = "confirmPassword";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

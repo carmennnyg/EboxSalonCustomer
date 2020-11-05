@@ -72,25 +72,13 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="28dp"
         android:text="No account? "
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/eye_image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="220dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/eye_icon_small_3" />
 
     <EditText
         android:id="@+id/email_edit_text"
@@ -99,7 +87,7 @@
         android:layout_marginBottom="12dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Username/Email"
+        android:hint="Username/Email"
         android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/password_edit_text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -113,7 +101,7 @@
         android:layout_marginBottom="19dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:text="Password"
+        android:hint="Password"
         android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/log_in_button"
         app:layout_constraintEnd_toEndOf="parent"
